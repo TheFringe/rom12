@@ -9,11 +9,13 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { CardComponent } from './card/card.component';
+import { BibleService } from './services/bible.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, FontAwesomeModule ],
   declarations: [ AppComponent, HelloComponent, CardComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [BibleService]
 })
 export class AppModule { 
   constructor(){
