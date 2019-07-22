@@ -1,16 +1,18 @@
-<div [ngClass]="showBack ? 'show-back' : 'show-front'" (click)="flipCard()">
+<div [ngClass]="showBack ? 'show-back' : 'show-front'">
 	<div class="flip-card-inner">
-		<div class="flip-card-front">
+		<div class="flip-card-front" (click)="flipCard()">
 			<h1>Rom 12:1</h1>
 		</div>
 		<div class="flip-card-back">
-      <fa-icon icon="thumbs-up"></fa-icon>
-			<p>
+			<fa-icon icon="thumbs-up" (click)="up()" [ngClass]="learned ? 'green':'white'"></fa-icon>
+			<p (click)="flipCard()">
 				Därför ber jag er, bröder, vid Guds barmhärtighet, att frambära er själva som ett levande och heligt offer som behagar Gud.
 				Det skall vara er andliga gudstjänst.
 			</p>
-  <fa-icon icon="thumbs-down"></fa-icon>
+			<fa-icon icon="thumbs-down" (click)="down()" [ngClass]="train ? 'red':'white'"></fa-icon>
 
 		</div>
+
+
 	</div>
 </div>

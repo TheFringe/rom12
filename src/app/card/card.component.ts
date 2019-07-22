@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  train = false;
+  learned = false;
   showBack = false;
   constructor() { }
 
@@ -15,5 +17,17 @@ export class CardComponent implements OnInit {
 
   flipCard() {
     this.showBack = !this.showBack;
+  }
+
+  up() {
+    console.log("up");
+    this.train = false;
+    this.learned = true;
+  }
+
+  down() {
+    console.log("down");
+    this.train = true;
+    this.learned = false;
   }
 }

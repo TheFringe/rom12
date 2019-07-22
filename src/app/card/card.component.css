@@ -45,3 +45,15 @@ padding: 16px;
   color: white;
   transform: rotateY(180deg);
 }
+
+.red{
+  color:red;
+}
+
+.green{
+  color:green;
+}
+
+.white{
+  color:white;
+}
