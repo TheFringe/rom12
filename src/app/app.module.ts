@@ -10,12 +10,13 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { CardComponent } from './card/card.component';
 import { BibleService } from './services/bible.service';
+import { ProgressService } from './services/progress.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, FontAwesomeModule ],
   declarations: [ AppComponent, HelloComponent, CardComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [BibleService]
+  providers: [BibleService, ProgressService]
 })
 export class AppModule { 
   constructor(){
