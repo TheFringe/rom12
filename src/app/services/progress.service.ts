@@ -8,11 +8,18 @@ export class ProgressService {
   constructor() { }
 
   addProgress(verse:BibleWord, learned:boolean){
-
-    if(learned && this.learnedVerses.filter(v => this.checkIfVerseEquals(v, verse)).length < 0){
+    const previouslyLearned = this.learnedVerses.filter(v => this.checkIfVerseEquals(v, verse))[0];
+    const previouslyNeedToLearn = this.learnedVerses.filter(v => this.checkIfVerseEquals(v, verse))[0];
+    if(learned && !previouslyLearned){
       this.learnedVerses.push(verse);
-    } else if(this.learnedVerses.filter(v => this.checkIfVerseEquals(v, verse)).length < 0) {
+      if(previouslyNeedToLearn){
+        this.needToLearnVerses = this.needToLearnVerses.filter(v => !this.checkIfVerseEquals(v, verse));
+      }
+    } else if(!previouslyNeedToLearn) {
       this.needToLearnVerses.push(verse);
+      if(previouslyLearned){
+        this.learnedVerses = this.learnedVerses.filter(v => !this.checkIfVerseEquals(v, verse));
+      }
     }
   }
 
