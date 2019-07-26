@@ -15,7 +15,7 @@ export class CardComponent implements OnInit {
   showBack = false;
   private verseNumber = 0;
 
-  constructor(private bibleService: BibleService) { }
+  constructor(private bibleService: BibleService, private progressService:ProgressService) { }
 
   currentBibleWord: BibleWord;
 
@@ -29,20 +29,29 @@ export class CardComponent implements OnInit {
 
   up() {
     console.log("up");
-    this.train = false;
-    this.learned = true;
-    this.updateCurrentBibleWord();
+    this.trackProgress(true);
   }
 
   down() {
     console.log("down");
-    this.train = true;
-    this.learned = false;
+    this.trackProgress(false);
+  }
+
+  trackProgress(learned:boolean){
+    this.progressService.addProgress(this.currentBibleWord, learned);
+    this.updateCurrentBibleWord();
+    this.flipCard();
   }
 
   updateCurrentBibleWord() {
-    this.verseNumber = this.verseNumber + 1;
+    this.verseNumber = this.verseNumber === 21 ? 1 : this.verseNumber + 1;
     this.currentBibleWord = this.bibleService.get(this.verseNumber);
+    this.updateLearnedStatus();
+  }
+
+  updateLearnedStatus(){
+    this.learned = this.bibleService.checkIfLearned(this.currentBibleWord);
+    this.train = this.bibleService.checkIfNeedToLearn(this.currentBibleWord);
   }
 
   get passage(): string {
