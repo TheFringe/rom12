@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BibleService } from '../services/bible.service';
+import { ProgressService } from '../services/progress.service';
 import { BibleWord } from '../models/bible-word';
 @Component({
   selector: 'app-card',
@@ -12,12 +13,14 @@ export class CardComponent implements OnInit {
   train = false;
   learned = false;
   showBack = false;
+  private verseNumber = 0;
+
   constructor(private bibleService: BibleService) { }
 
   currentBibleWord: BibleWord;
 
   ngOnInit() {
-    this.currentBibleWord = this.bibleService.get(0);
+    this.updateCurrentBibleWord();
   }
 
   flipCard() {
@@ -28,12 +31,18 @@ export class CardComponent implements OnInit {
     console.log("up");
     this.train = false;
     this.learned = true;
+    this.updateCurrentBibleWord();
   }
 
   down() {
     console.log("down");
     this.train = true;
     this.learned = false;
+  }
+
+  updateCurrentBibleWord() {
+    this.verseNumber = this.verseNumber + 1;
+    this.currentBibleWord = this.bibleService.get(this.verseNumber);
   }
 
   get passage(): string {
