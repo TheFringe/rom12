@@ -10,7 +10,10 @@ export class ProgressService {
   addProgress(verse: BibleWord, learned: boolean) {
     console.log("addProgress");
     const previouslyLearned = this.learnedVerses.filter(v => this.checkIfVerseEquals(v, verse))[0];
-    const previouslyNeedToLearn = this.learnedVerses.filter(v => this.checkIfVerseEquals(v, verse))[0];
+    console.log(previouslyLearned);
+    const previouslyNeedToLearn = this.needToLearnVerses.filter(v => this.checkIfVerseEquals(v, verse))[0];
+    console.log(previouslyNeedToLearn);
+
     if (learned && !previouslyLearned) {
       this.learnedVerses.push(verse);
       if (previouslyNeedToLearn) {
@@ -22,6 +25,7 @@ export class ProgressService {
         this.learnedVerses = this.learnedVerses.filter(v => !this.checkIfVerseEquals(v, verse));
       }
     }
+    
   }
 
   checkIfLearned(verse: BibleWord): boolean {
