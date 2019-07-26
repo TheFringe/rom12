@@ -44,7 +44,7 @@ export class CardComponent implements OnInit {
   }
 
   updateCurrentBibleWord() {
-    this.verseNumber = this.verseNumber === 21 ? 1 : this.verseNumber + 1;
+    this.verseNumber = this.verseNumber === 3 ? 1 : this.verseNumber + 1;
     this.currentBibleWord = this.bibleService.get(this.verseNumber);
     this.updateLearnedStatus();
   }

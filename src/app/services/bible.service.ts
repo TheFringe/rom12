@@ -134,6 +134,26 @@ export class BibleService {
         text: 'Låt dig inte besegras av det onda, utan besegra det onda med det goda.'
       }
     ];
+    this.romans = [
+      {
+        book: 'Rom',
+        chapter: 12,
+        verse: 1,
+        text: 'Därför ber jag er, bröder, vid Guds barmhärtighet att frambära er själva som ett levande och heligt offer som behagar Gud. Det skall vara er andliga gudstjänst.'
+      },
+      {
+        book: 'Rom',
+        chapter: 12,
+        verse: 2,
+        text: 'Anpassa er inte efter denna världen, utan låt er förvandlas genom förnyelsen av era tankar, så att ni kan avgöra vad som är Guds vilja: det som är gott, behagar honom och är fullkomligt.'
+      },
+      {
+        book: 'Rom',
+        chapter: 12,
+        verse: 3,
+        text: 'I kraft av den nåd jag har fått säger jag till var och en av er: ha inte för höga tankar om er själva utan tänk som man bör tänka, med självbesinning, så att var och en rättar sig efter det mått av tro som Gud har tilldelat honom.'
+      }
+    ];
   }
 
   public get(verse: number): BibleWord {
