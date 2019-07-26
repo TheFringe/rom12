@@ -50,8 +50,11 @@ export class CardComponent implements OnInit {
   }
 
   updateLearnedStatus(){
-    this.learned = this.bibleService.checkIfLearned(this.currentBibleWord);
-    this.train = this.bibleService.checkIfNeedToLearn(this.currentBibleWord);
+    this.learned = this.progressService.checkIfLearned(this.currentBibleWord);
+    this.train = this.progressService.checkIfNeedToLearn(this.currentBibleWord);
+    console.log('Train: ' + this.train);
+    console.log('Learned: ' + this.learned);
+
   }
 
   get passage(): string {

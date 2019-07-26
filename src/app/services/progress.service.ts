@@ -29,7 +29,7 @@ export class ProgressService {
   }
 
   checkIfNeedToLearn(verse: BibleWord): boolean {
-    return this.learnedVerses.filter(v => this.checkIfVerseEquals(v, verse)).length > 0;
+    return this.needToLearnVerses.filter(v => this.checkIfVerseEquals(v, verse)).length > 0;
   }
 
   checkIfVerseEquals(verse: BibleWord, currentVerse: BibleWord): boolean {
