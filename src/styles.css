@@ -5,7 +5,9 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
-p{
+p, q{
   line-height: 1.5em;
   font-size: 18px;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

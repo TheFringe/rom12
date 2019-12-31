@@ -1,20 +1,32 @@
-<div [ngClass]="showBack ? 'show-back' : 'show-front'">
-	<div class="flip-card-inner">
-		<div class="flip-card-front" (click)="flipCard()">
-			<h1>{{passage}}</h1>
-      <fa-icon icon="lightbulb"></fa-icon>
-		</div>
-		<div class="flip-card-back">
-			<h1>{{passage}}</h1>
-
-			<fa-icon icon="thumbs-up" (click)="up()" [ngClass]="learned ? 'green':'white'"></fa-icon>
-			<p (click)="flipCard()">
-				{{currentBibleWord.text}}
-			</p>
-			<fa-icon icon="thumbs-down" (click)="down()" [ngClass]="train ? 'red':'white'"></fa-icon>
-
-		</div>
-
-
-	</div>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div [ngClass]="showBack ? 'show-back' : 'show-front'">
+      <div class="flip-card-inner">
+        <div class="flip-card-front" (click)="flipCard()">
+          <h1>{{ passage }}</h1>
+          <fa-icon icon="lightbulb"></fa-icon>
+        </div>
+        <div class="flip-card-back" (click)="flipCard()">
+          <div>
+            <fa-icon
+              icon="thumbs-up"
+              (click)="up()"
+              [ngClass]="learned ? 'green' : 'white'"
+            ></fa-icon>
+          </div>
+          <q>{{ currentBibleWord.text }}</q>
+          <div>
+            <fa-icon
+              icon="thumbs-down"
+              (click)="down()"
+              [ngClass]="train ? 'red' : 'white'"
+            ></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

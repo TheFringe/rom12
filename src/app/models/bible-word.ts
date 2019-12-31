@@ -3,11 +3,13 @@ export class BibleWord {
   chapter: number;
   verse: number;
   text: string;
+  shortBook: string;
 
-  constructor(book = '', cahpter = 0, verse = 0, text = '') {
+  constructor(book = '', chapter = 0, verse = 0, text = '', shortBook = '') {
     this.book = book;
-    this.chapter = cahpter;
+    this.chapter = chapter;
     this.verse = verse;
     this.text = text;
+    this.shortBook = shortBook;
   }
 }
